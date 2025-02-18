@@ -182,16 +182,19 @@ def getClosedContracts():
                     return
                 
                 if null_count >= 3:
-                    go = False
-                    number = 1
+                    print(f"Parando o loop para {day}, pois 3 tentativas retornaram vazias consecutivamente. #3")
+                    go = False  # Para de buscar novos contratos para este dia
+                    number = 1  # Reseta para o próximo dia
+                    null_count = 0  # Reseta o contador para o próximo dia
                     continue
             else:
                 saveOnDataBase(contract["data"])
                 null_count = 0  # Reseta o contador ao encontrar um contrato válido
-                number += 1
+                number += 1  # Continua buscando mais contratos para o mesmo dia
 
-            print(f"Número de tentativas: {number}")
-    print("Parando não sei porque :( #3")
+            print(f"Tentativa {number} para {day}")
+
+    print("Execução finalizada. #4")
     return
 
 registrar_execucao()
