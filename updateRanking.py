@@ -154,7 +154,8 @@ def getClosedContracts():
     for day in dias_do_mes:
         go = True
         while go:
-            if day > datetime.now():
+            if day > datetime.now().date():
+                print("Parando porque o dia é maior que hoje! #1")
                 return
             
             contract = getContractByFF(day, number, token)
@@ -177,7 +178,7 @@ def getClosedContracts():
 
                 # Se `null_count` chegar a 3 para `day == hoje`, interrompe a execução
                 if null_count >= 3 and day == datetime.now().date():
-                    print(f"Parando a execução, pois não há contratos para hoje após 3 tentativas ({day}).")
+                    print(f"Parando a execução, pois não há contratos para hoje após 3 tentativas ({day}). #2")
                     return
                 
                 if null_count >= 3:
@@ -190,7 +191,7 @@ def getClosedContracts():
                 number += 1
 
             print(f"Número de tentativas: {number}")
-    
+    print("Parando não sei porque :( #3")
     return
 
 registrar_execucao()
