@@ -175,6 +175,7 @@ def getClosedContracts():
                     continue
                 
                 null_count += 1
+                number += 1  # Avançar para o próximo número ao receber resposta vazia
 
                 # Se `null_count` chegar a 3 para `day == hoje`, interrompe a execução
                 if null_count >= 3 and day == datetime.now().date():
