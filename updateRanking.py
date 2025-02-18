@@ -154,7 +154,7 @@ def getClosedContracts():
     for day in dias_do_mes:
         go = True
         while go:
-            if day > datetime.now().date():
+            if day > datetime.now():
                 print("Parando porque o dia é maior que hoje! #1")
                 return
             
